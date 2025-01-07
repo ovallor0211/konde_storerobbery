@@ -1,9 +1,9 @@
 QBCore = Nil
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local DrugPoints = {
+local Robpoint = {
     {
-        name = "Badulaque",
+        name = "Badulaque", -- theft point
         coords = vector3(378.16, 333.24, 103.57)
     },
     {
@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
         local playerPed = PlayerPedId()
         local playerCoords = GetEntityCoords(playerPed)
 
-        for _, point in ipairs(DrugPoints) do
+        for _, point in ipairs(Robpoint) do
             local distance = GetDistanceBetweenCoords(playerCoords, point.coords, true)
             if distance < 2.5 then
                 DrawText3D(point.coords.x, point.coords.y, point.coords.z - 0.3, "~g~E~w~ - Comenzar robo de  " .. point.name)
